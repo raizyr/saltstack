@@ -1,10 +1,11 @@
-default['minion']['master']['name'] = "salt"
-default['minion']['master']['port'] = 4506
+#
+# Set minion config
+default['minion']['master'] = "salt"
+default['minion']['master_port'] = 4506
 default['minion']['pidfile'] = "/var/run/salt-minion.pid"
-default['minion']['user'] = "root"
-
-
+#
+# Set master config
 default['master']['interface'] = "0.0.0.0"
-default['master']['port'] = 4505
+default['master']['publish_port'] = 4505
 default['master']['user'] = "root"
 default['master']['pidfile'] = "/var/run/salt-master.pid"

@@ -20,10 +20,8 @@ end
 
 template "/etc/salt/master" do
   source "master.erb"
-  variables({:interface => node['master']['interface'],
-              :publish_port => node['master']['port'],
-              :pidfile => node['master']['pidfile'],
-              :user => node['master']['user']})
+  helpers(SaltConfigHelper)
+  variables({ :master => node['master'] })
   notifies :restart, "service[salt-master]", :immediately
 end
 

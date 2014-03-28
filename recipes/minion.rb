@@ -20,10 +20,8 @@ end
 
 template "/etc/salt/minion" do
   source "minion.erb"
-  variables({:master => node['minion']['master']['name'],
-              :master_port => node['minion']['master']['port'],
-              :pidfile => node['minion']['pidfile'],
-              :user => node['minion']['user']})
+  helpers(SaltConfigHelper)
+  variables({:minion => node['minion']})
   notifies :restart, "service[salt-minion]", :immediately
 end
 
