@@ -442,7 +442,7 @@ fileserver_backend:
 <% if @master.has_key?('gitfs_remotes') -%>
 gitfs_remotes:
 <% for remote in @master['gitfs_remotes'] -%>
-  - <%= remote %><% endfor -%>
+  - <%= remote %>
 <% end -%>
 <% end -%>
 #
